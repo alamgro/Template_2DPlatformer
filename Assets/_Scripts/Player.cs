@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
     {
         rigidB = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-
     }
 
     
@@ -42,7 +40,7 @@ public class Player : MonoBehaviour
             //Check if the player is on the ground
             if(Physics2D.BoxCast(playerCollider.bounds.center, new Vector2(playerCollider.bounds.size.x - 0.1f, 0.05f), 0f, Vector2.down, playerCollider.bounds.extents.y, maskIgnoreSelf))
             {
-                print("Jump");
+                //print("Jump");
                 rigidB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
@@ -50,6 +48,10 @@ public class Player : MonoBehaviour
 
         movementDirection.y = rigidB.velocity.y;
 
+        #region DEBUG
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        #endregion
     }
 
     private void FixedUpdate()
