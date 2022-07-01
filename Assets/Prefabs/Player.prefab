@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
-  jumpForce: 4
+  speedReductionStrength: 10
+  jumpForce: 5
   gravityScale: 1
   maskIgnoreSelf:
     serializedVersion: 2
@@ -133,7 +134,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7297724694926402687}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3a23de6ddc65f6a428a470f7af526bb1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
